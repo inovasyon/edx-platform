@@ -977,7 +977,6 @@ class RegistrationViewTestV1(
             }
         )
 
-
     def test_register_form_profession_without_profession_options(self):
         self._assert_reg_field(
             {"profession": "required"},
