@@ -950,7 +950,7 @@ class CourseFields:  # lint-amnesty, pylint: disable=missing-class-docstring
             "'private' (default visibility, only allowed for enrolled students), 'public_outline' "
             "(allow access to course outline) and 'public' (allow access to both outline and course content)."
         ),
-        default=COURSE_VISIBILITY_PRIVATE,
+        default=COURSE_VISIBILITY_PUBLIC_OUTLINE,
         scope=Scope.settings,
         values=[
             {"display_name": "private", "value": COURSE_VISIBILITY_PRIVATE},
