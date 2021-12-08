@@ -103,8 +103,6 @@ class ProgressTabView(RetrieveAPIView):
         course_key_string = kwargs.get('course_key_string')
         course_key = CourseKey.from_string(course_key_string)
 
-        if not course_home_mfe_progress_tab_is_active(course_key):
-            raise Http404
 
         # Enable NR tracing for this view based on course
         monitoring_utils.set_custom_attribute('course_id', course_key_string)

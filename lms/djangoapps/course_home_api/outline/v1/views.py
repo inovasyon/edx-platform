@@ -161,8 +161,6 @@ class OutlineTabView(RetrieveAPIView):
         course_key = CourseKey.from_string(course_key_string)
         course_usage_key = modulestore().make_course_usage_key(course_key)
 
-        if not course_home_mfe_outline_tab_is_active(course_key):
-            raise Http404
 
         # Enable NR tracing for this view based on course
         monitoring_utils.set_custom_attribute('course_id', course_key_string)
