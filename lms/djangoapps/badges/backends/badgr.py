@@ -121,7 +121,7 @@ class BadgrBackend(BadgeBackend):
             files = {'image': (image.name, image_file, content_type)}
             data = {
                 'name': badge_class.display_name,
-                'criteriaUrl': badge_class.criteria,
+                'criteriaNarrative': badge_class.criteria,
                 'description': badge_class.description,
             }
             result = requests.post(
@@ -169,13 +169,16 @@ class BadgrBackend(BadgeBackend):
                 "identity": user.email,
                 "type": "email"
             },
-            "evidence": [
+            "notify": settings.BADGR_ENABLE_NOTIFICATIONS,
+        }
+
+        if(evidence_url != None):
+            data["evidence"] = [
                 {
                     "url": evidence_url
                 }
             ],
-            "notify": settings.BADGR_ENABLE_NOTIFICATIONS,
-        }
+
         response = requests.post(
             self._assertion_url(badge_class.badgr_server_slug),
             headers=self._get_headers(),
