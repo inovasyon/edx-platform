@@ -119,7 +119,7 @@ def convert_swagger_to_sphinx(swagger_file, output_dir):
 
 
 def main(args):
-    convert_swagger_to_sphinx(swagger_file=args[0], output_dir=args[1])
+    #convert_swagger_to_sphinx(swagger_file=args[0], output_dir=args[1])
 
 
 if __name__ == '__main__':
