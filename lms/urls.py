@@ -965,7 +965,7 @@ if settings.FEATURES.get('ENABLE_FINANCIAL_ASSISTANCE_FORM'):
     ]
 
 # API docs.
-urlpatterns += make_docs_urls(api_info)
+#urlpatterns += make_docs_urls(api_info)
 
 # edx-drf-extensions csrf app
 urlpatterns += [
