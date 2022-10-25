@@ -119,6 +119,7 @@ def convert_swagger_to_sphinx(swagger_file, output_dir):
 
 
 def main(args):
+    pass
     #convert_swagger_to_sphinx(swagger_file=args[0], output_dir=args[1])
 
 
