@@ -300,7 +300,7 @@ urlpatterns += [
 ]
 
 # API docs.
-urlpatterns += make_docs_urls(api_info)
+#urlpatterns += make_docs_urls(api_info)
 
 # edx-drf-extensions csrf app
 urlpatterns += [
