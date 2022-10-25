@@ -23,9 +23,6 @@ SWAGGER = docs/swagger.yaml
 
 docs: api-docs guides technical-docs ## build all the developer documentation for this repository
 
-swagger: ## generate the swagger.yaml file
-	DJANGO_SETTINGS_MODULE=docs.docs_settings python manage.py lms generate_swagger --generator-class=edx_api_doc_tools.ApiSchemaGenerator -o $(SWAGGER)
-
 api-docs-sphinx: swagger	## generate the sphinx source files for api-docs
 	rm -f docs/api/gen/*
 	python docs/sw2sphinxopenapi.py $(SWAGGER) docs/api/gen
