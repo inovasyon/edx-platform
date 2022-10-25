@@ -1,6 +1,5 @@
 # Do things in edx-platform
 .PHONY: clean extract_translations help pull pull_translations push_translations requirements shell upgrade
-.PHONY: api-docs docs guides swagger
 
 # Careful with mktemp syntax: it has to work on Mac and Ubuntu, which have differences.
 PRIVATE_FILES := $(shell mktemp -u /tmp/private_files.XXXXXX)
@@ -22,13 +21,6 @@ clean: ## archive and delete most git-ignored files
 SWAGGER = docs/swagger.yaml
 
 docs: api-docs guides technical-docs ## build all the developer documentation for this repository
-
-api-docs-sphinx: swagger	## generate the sphinx source files for api-docs
-	rm -f docs/api/gen/*
-	python docs/sw2sphinxopenapi.py $(SWAGGER) docs/api/gen
-
-api-docs: api-docs-sphinx	## build the REST api docs
-	cd docs/api; make html
 
 technical-docs:  ## build the technical docs
 	$(MAKE) -C docs/technical html
