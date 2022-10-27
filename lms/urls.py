@@ -781,24 +781,24 @@ if settings.FEATURES.get('ENABLE_STUDENT_HISTORY_VIEW'):
         ),
     ]
 
-if settings.DEBUG or settings.FEATURES.get('ENABLE_DJANGO_ADMIN_SITE'):
+#if settings.DEBUG or settings.FEATURES.get('ENABLE_DJANGO_ADMIN_SITE'):
     # Jasmine and admin
 
     # The password pages in the admin tool are disabled so that all password
     # changes go through our user portal and follow complexity requirements.
     # The form to change another user's password is conditionally enabled
     # for backwards compatibility.
-    if not settings.FEATURES.get('ENABLE_CHANGE_USER_PASSWORD_ADMIN'):
-        urlpatterns += [
-            url(r'^admin/auth/user/\d+/password/$', handler404),
-        ]
-    urlpatterns += [
-        url(r'^admin/password_change/$', handler404),
-        # We are enforcing users to login through third party auth in site's
-        # login page so we are disabling the admin panel's login page.
-        url(r'^admin/login/$', redirect_to_lms_login),
-        url(r'^admin/', admin.site.urls),
-    ]
+#    if not settings.FEATURES.get('ENABLE_CHANGE_USER_PASSWORD_ADMIN'):
+#        urlpatterns += [
+#            url(r'^admin/auth/user/\d+/password/$', handler404),
+#        ]
+#    urlpatterns += [
+#        url(r'^admin/password_change/$', handler404),
+#        # We are enforcing users to login through third party auth in site's
+#        # login page so we are disabling the admin panel's login page.
+#        url(r'^admin/login/$', redirect_to_lms_login),
+#        url(r'^admin/', admin.site.urls),
+#    ]
 
 if configuration_helpers.get_value('ENABLE_BULK_ENROLLMENT_VIEW', settings.FEATURES.get('ENABLE_BULK_ENROLLMENT_VIEW')):
     urlpatterns += [
